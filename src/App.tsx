@@ -1,12 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ExamResults from "./pages/ExamResults";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import HomePage from "@/pages/HomePage";
 
-export default function App() {
+function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ExamResults />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="light" storageKey="ui-theme">
+      <div className="min-h-screen bg-background">
+        <HomePage />
+        <Toaster />
+      </div>
+    </ThemeProvider>
   );
 }
+
+export default App;
